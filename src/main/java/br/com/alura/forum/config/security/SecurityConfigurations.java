@@ -49,6 +49,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 			.antMatchers(HttpMethod.GET, "/topicos").permitAll() //tudo que for relacionado com a url /topicos esta liberado, com o httpMethod, somente o Get é liberado para todos
 			.antMatchers(HttpMethod.GET, "/topicos/*").permitAll()
 			.antMatchers(HttpMethod.POST, "/auth").permitAll()
+			.antMatchers(HttpMethod.GET, "/actuator/**").permitAll()
 			.anyRequest().authenticated()
 			.and().csrf().disable() //csrf() cross-site request forgery é desabilitado pq a autenticação de forma stateless
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
